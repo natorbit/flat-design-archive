@@ -1,24 +1,37 @@
-// .eleventy.js
-
 module.exports = function(eleventyConfig) {
+  
+  // 1. Define the correct path prefix based on the environment
+  // The repository name MUST match exactly, including casing:
+  const repoName = "flat-design-archive";
+  
+  // If we are running in production (GitHub Actions), use the subfolder path,
+  // otherwise, use the root path for local development.
+  const pathPrefix = process.env.NODE_ENV === 'production' 
+    ? `/${repoName}/` 
+    : `/`;
 
-    // 1. CONDITIONAL PATH VARIABLE FIX
-    const IS_PRODUCTION = process.env.NODE_ENV === "production";
-
-    // Set 'baseurl' to the repo name for GitHub, or empty string locally
-    eleventyConfig.addGlobalData('pathPrefix', '/flat-design-archive/');
-
-    // 2. PASSTHROUGH COPY
-    eleventyConfig.addPassthroughCopy("public");
-
-    return {
-        dir: {
-            input: "src",
-            includes: "_includes",
-            data: "_data",
-            output: "_site"
-        },
-        htmlTemplateEngine: "njk",
-        markdownTemplateEngine: "njk"
-    };
+  // 2. Make the pathPrefix available as a variable in all templates ({{ pathPrefix }})
+  eleventyConfig.addGlobalData('pathPrefix', pathPrefix);
+  
+  // 3. Passthrough Copy (Ensure your CSS/JS files are copied)
+  // Assuming your assets are in a folder named 'public'
+  eleventyConfig.addPassthroughCopy("public"); 
+  
+  // 4. Return the configuration object
+  return {
+    // CRITICAL: Set the pathPrefix for generated URLs (e.g., pagination, collections)
+    pathPrefix: pathPrefix, 
+    
+    // Define input/output directories
+    dir: {
+      input: ".", 
+      output: "_site", 
+      includes: "_includes"
+    },
+    
+    // Default templating engine settings
+    markdownTemplateEngine: "liquid",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk"
+  };
 };
