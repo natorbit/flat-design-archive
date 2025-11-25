@@ -1,0 +1,10 @@
+{
+  "title": "Flat Design Archive",
+  "description": "A visual and historical exploration of Flat Design.",
+  "nav": [
+    { "name": "Home", "url": "/" },
+    { "name": "History", "url": "/history/" },
+    { "name": "Examples", "url": "/examples/" },
+    { "name": "References", "url": "/references/" }
+  ]
+}
