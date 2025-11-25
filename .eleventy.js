@@ -7,9 +7,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData('pathPrefix', pathPrefix);
   
   // 3. Passthrough Copy (Ensure your CSS/JS files are copied)
-  // 💥 FINAL FIX: Explicitly copy the folder located at the project root (./public)
-  // to the output root, bypassing any input directory ambiguity.
-  eleventyConfig.addPassthroughCopy({ "./public": "public" }); 
+  // 💥 FINAL, MOST AGGRESSIVE FIX: This tells Eleventy to treat all files/folders 
+  // at the root that don't start with '_' or '.' (like 'public') as passthrough assets.
+  eleventyConfig.addPassthroughCopy([
+    'public', // The public directory at the root
+    { './public': 'public' }, // The absolute path
+    { './public/**': 'public' } // Including all contents explicitly
+  ]);
   
   // 4. Return the configuration object
   return {
