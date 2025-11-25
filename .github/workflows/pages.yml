@@ -20,12 +20,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Eleventy Site (Final Shell Fix)
-        # 💥 FINAL FIX (Attempt 6): We force the execution shell to be the Node shell.
-        # This bypasses the Ubuntu bash permissions lock that is causing the 
-        # 'Permission denied' error (Exit Code 127) for all previous commands.
-        run: NODE_ENV=production npx @11ty/eleventy
-        shell: node {0}
+      # 💥 CRUCIAL FIX: Explicitly grant execute permission to all binaries.
+      # This forces the resolution of the persistent 'Permission denied' error (Exit Code 127).
+      - name: Fix Node Binary Permissions
+        run: chmod +x node_modules/.bin/*
+
+      - name: Build Eleventy Site
+        # We revert to the standard Bash shell (by removing 'shell: node {0}').
+        # We use npx --no-install to reliably execute the local Eleventy binary 
+        # now that its permissions have been fixed.
+        run: NODE_ENV=production npx --no-install @11ty/eleventy
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
