@@ -9,11 +9,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
-    # 💥 FINAL FIX: Add permissions block for deployment
+    # Required permissions block for the gh-pages deployment action
     permissions:
-      contents: write # Allows the action to push to the repository (e.g., gh-pages)
-      pages: write    # Required for GitHub Pages deployment
-      id-token: write # Required for deployment systems
+      contents: write 
+      pages: write    
+      id-token: write 
 
     steps:
       - name: Checkout
@@ -27,20 +27,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 💥 CRUCIAL FIX: Explicitly grant execute permission to all binaries.
-      # This forces the resolution of the persistent 'Permission denied' error (Exit Code 127).
+      # 💥 CRITICAL FIX: Ensure Eleventy binary can run. This prevents Exit Code 127/Permission errors.
       - name: Fix Node Binary Permissions
         run: chmod +x node_modules/.bin/*
 
-      - name: Build Eleventy Site
-        # We revert to the standard Bash shell (by removing 'shell: node {0}').
-        # We use npx --no-install to reliably execute the local Eleventy binary 
-        # now that its permissions have been fixed.
+      - name: Build Eleventy Site (with Passthrough Copy)
+        # Uses the hardcoded path prefix defined in .eleventy.js
         run: NODE_ENV=production npx --no-install @11ty/eleventy
 
       - name: Deploy to GitHub Pages
+        # The peaceiris action is fine, but must be paired with correct build steps above.
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site # Tells the action to push the output folder
+          publish_dir: ./_site # Tells the action to push the built output folder
           publish_branch: gh-pages # The branch that GitHub Pages will serve
