@@ -20,11 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Eleventy Site (npx --no-install fix)
-        # 💥 FINAL FIX (Attempt 5): We use 'npx --no-install'. This command finds the 
-        # local binary and runs it directly, bypassing the 'Permission denied' errors 
-        # that standard npx or shell execution methods have failed to resolve.
-        run: NODE_ENV=production npx --no-install @11ty/eleventy
+      - name: Build Eleventy Site (Final Shell Fix)
+        # 💥 FINAL FIX (Attempt 6): We force the execution shell to be the Node shell.
+        # This bypasses the Ubuntu bash permissions lock that is causing the 
+        # 'Permission denied' error (Exit Code 127) for all previous commands.
+        run: NODE_ENV=production npx @11ty/eleventy
+        shell: node {0}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
