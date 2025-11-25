@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title }}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
 
-  <!-- Check 1: Ensure flat.css loads -->
-  <link rel="stylesheet" href="/flat-design-archive/public/css/flat.css" />
-  
-  <!-- Check 2: Add style.css, just in case it is the primary stylesheet -->
-  <link rel="stylesheet" href="/flat-design-archive/public/css/style.css" />
+  <link rel="stylesheet" href="/flat-design-archive/public/css/flat.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container nav-bar">
-      <div class="logo">Flat Design Archive</div>
-      
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="hamburger-icon"></span> 
-      </button>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">Flat Design Archive</div>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-icon"></span> 
+      </button>
 
-      <nav class="nav nav-links">
-        <!-- CORRECT: Use the variable for navigation -->
-        <a href="/flat-design-archive/">Home</a>
-        <a href="/flat-design-archive/history/">History</a>
-        <a href="/flat-design-archive/examples/">Examples</a>
-        <a href="/flat-design-archive/references/">References</a>
-      </nav>
-    </div>
-  </header>
+      <nav class="nav nav-links">
+        <a href="/flat-design-archive/">Home</a>
+        <a href="/flat-design-archive/history/">History</a>
+        <a href="/flat-design-archive/examples/">Examples</a>
+        <a href="/flat-design-archive/references/">References</a>
+      </nav>
+    </div>
+  </header>
 
-  <main class="container page-content">
-    <!-- Content from Markdown is injected here -->
-    {{ content | safe }}
-  </main>
+  <main class="container page-content">
+    <div class="hero">
+      <h1>Flat Design Archive</h1>
+      <p>
+        Clean, colorful, two-dimensional UI inspired by early-2010s Flat Design and iOS 7.
+        Explore its origins, principles, and modern examples.
+      </p>
+      <div class="hero-buttons">
+        <a href="/flat-design-archive/history/" class="btn primary">Learn the history</a>
+        <a href="/flat-design-archive/examples/" class="btn secondary">View examples</a>
+      </div>
+    </div>
+    <hr />
+    <h2>Core Principles</h2>
+    <div class="card-grid">
+      <div class="card blue">
+        <h3>Color</h3>
+        <p>Bright, saturated color palettes.</p>
+      </div>
+      <div class="card green">
+        <h3>Simplicity</h3>
+        <p>Minimal textures, shadows, and effects.</p>
+      </div>
+      <div class="card orange">
+        <h3>Geometry</h3>
+        <p>Crisp grids, shapes, and clean spacing.</p>
+      </div>
+      <div class="card red">
+        <h3>Usability</h3>
+        <p>Focus on clarity and high readability.</p>
+      </div>
+    </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© Flat Design Archive</p>
-    </div>
-  </footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Flat Design Archive</p>
+    </div>
+  </footer>
 
-  <!-- CORRECT: Use the variable for scripts -->
-  <script src="/flat-design-archive/public/js/menu.js"></script> 
+  <script src="/flat-design-archive/public/js/menu.js"></script> 
 </body>
 </html>

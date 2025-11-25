@@ -12,8 +12,8 @@ permalink: /index.html
   </p>
 
   <div class="hero-buttons">
-    <a href="/history/" class="btn primary">Learn the history</a>
-    <a href="/examples/" class="btn secondary">View examples</a>
+    <a href="/flat-design-archive/history/" class="btn primary">Learn the history</a>
+    <a href="/flat-design-archive/examples/" class="btn secondary">View examples</a>
   </div>
 </div>
 
