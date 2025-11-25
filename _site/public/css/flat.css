@@ -1,0 +1,402 @@
+/* ---------------------------------------------------
+   FLAT DESIGN STYLE (Early-2010s iOS 7 style)
+--------------------------------------------------- */
+
+:root {
+  --primary: #3498db;
+  --success: #2ecc71;
+  --warning: #f1c40f;
+  --danger: #e74c3c;
+  --gray-light: #ecf0f1;
+  --gray-dark: #2c3e50;
+
+  --radius: 8px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background: #f7f9fa;
+  color: var(--gray-dark);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------------- HEADER ---------------- */
+
+.site-header {
+  background: white;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+
+.page-content {
+  padding: 40px 0;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+.site-footer {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 20px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ---------------- FLAT BUTTONS ---------------- */
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-primary { background: var(--primary); }
+.btn-success { background: var(--success); }
+.btn-warning { background: var(--warning); }
+.btn-danger  { background: var(--danger); }
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+/* ---------------- CARDS ---------------- */
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+/* --- RESPONSIVE NAVIGATION STYLES (Add to your flat.css) --- */
+
+/* Default Desktop Styles */
+.nav-toggle {
+    /* Hide the button on large screens */
+    display: none; 
+}
+
+.nav-links {
+    /* Ensure links display horizontally on desktop */
+    display: flex;
+    gap: 1.5rem; 
+}
+
+/* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+    /* Make the navigation bar elements align/space correctly on mobile */
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* 1. Show the Hamburger Button */
+    .nav-toggle {
+        display: block; 
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* 2. Style the Hamburger Icon (The Three Lines) */
+    .hamburger-icon,
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #333; /* Set line color */
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* 3. Hide the Links by Default on Mobile */
+    .nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100; /* Ensure it floats over content */
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        display: block; /* Make the links fill the width */
+    }
+    
+    /* 4. State for when the menu is visible (JS adds this class) */
+    .nav-links.is-open {
+        display: flex !important; /* Display as a column when the button is clicked */
+    }
+}
+/* --- FLAT DESIGN COLOR PALETTE DEFINITIONS --- */
+
+/* Base Styles for Buttons and Cards */
+.btn, .card {
+    transition: background-color 0.2s ease;
+}
+
+/* --- BUTTON COLORS --- */
+.btn {
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    color: white; /* Default text color for buttons */
+}
+
+/* Primary Button (Blue) */
+.btn.primary {
+    background-color: #3498db; /* Peter River Blue */
+}
+.btn.primary:hover {
+    background-color: #2980b9; 
+}
+
+/* Secondary Button (Gray/Light) */
+.btn.secondary {
+    background-color: #bdc3c7; /* Silver/Clouds Gray */
+    color: #333;
+}
+.btn.secondary:hover {
+    background-color: #95a5a6;
+}
+
+
+/* --- CARD COLORS --- */
+
+/* Blue Card */
+.card.blue {
+    background-color: #3498db; /* Peter River Blue */
+    color: white;
+}
+.card.blue h3 {
+    color: white;
+}
+
+/* Green Card */
+.card.green {
+    background-color: #2ecc71; /* Emerald Green */
+    color: white;
+}
+.card.green h3 {
+    color: white;
+}
+
+/* Orange Card */
+.card.orange {
+    background-color: #f1c40f; /* Sunflower Yellow */
+    color: #333; /* Use dark text for contrast */
+}
+.card.orange h3 {
+    color: #333;
+}
+
+/* Red Card */
+.card.red {
+    background-color: #e74c3c; /* Alizarin Red */
+    color: white;
+}
+.card.red h3 {
+    color: white;
+}
+/* --- Flat Design Timeline Styles (Add to public/css/flat.css) --- */
+
+.timeline {
+    position: relative;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* The main vertical line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #bdc3c7; /* Light gray line */
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Position the line */
+    margin-left: -3px; /* Center it */
+}
+
+/* Individual timeline item */
+.timeline-item {
+    padding: 10px 0;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+    padding-left: 60px; /* Space for the dot */
+}
+
+/* The circular dot for each item */
+.timeline-dot {
+    height: 20px;
+    width: 20px;
+    background-color: #3498db; /* A prominent blue for the dot */
+    position: absolute;
+    left: 10px; /* Align with the vertical line */
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Content for each item */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #f8f8f8; /* Light background for content box */
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #34495e; /* Darker text for headings */
+}
+
+.timeline-content p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 600px) {
+    .timeline {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    .timeline::after {
+        left: 15px;
+    }
+    .timeline-item {
+        padding-left: 45px;
+    }
+    .timeline-dot {
+        left: 5px;
+        top: 20px;
+        width: 16px;
+        height: 16px;
+    }
+    .timeline-content {
+        padding: 15px 20px;
+    }
+}
+/* --- Flat Design References List Styles (Add to public/css/flat.css) --- */
+
+.reference-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin-top: 30px;
+}
+
+.ref-item {
+    background-color: #fff;
+    border: 1px solid #ecf0f1; /* Very light border */
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.ref-item p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.ref-item a {
+    color: #3498db; /* Primary link color */
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-start; /* Keeps the link aligned left */
+}
+
+/* Reference Type Tag Styling (The Color Indicator) */
+.ref-type {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    border-radius: 3px;
+    background-color: #95a5a6; /* Default gray/silver */
+    text-transform: uppercase;
+}
+
+/* Color Overrides for Reference Tags (using the Flat Design palette) */
+.ref-type.primary {
+    background-color: #3498db; /* Blue */
+}
+
+.ref-type.success {
+    background-color: #2ecc71; /* Green */
+}
+
+.ref-type.warning {
+    background-color: #f1c40f; /* Yellow */
+    color: #333; /* Dark text for contrast */
+}
+
+.ref-type.danger {
+    background-color: #e74c3c; /* Red */
+}

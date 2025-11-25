@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title or "Flat Design Archive" }}</title>
 
-  <link rel="stylesheet" href="/css/flat.css" />
+  <link rel="stylesheet" href="/public/css/flat.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav-bar">
       <div class="logo">Flat Design Archive</div>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-icon"></span> 
+      </button>
 
-      <nav class="nav">
+      <nav class="nav nav-links">
         <a href="/">Home</a>
         <a href="/history/">History</a>
         <a href="/examples/">Examples</a>
@@ -28,8 +32,10 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© {{ date.now() | date("yyyy") }} Flat Design Archive</p>
+      <p>© Flat Design Archive</p>
     </div>
   </footer>
+
+  <script src="/public/js/menu.js"></script> 
 </body>
 </html>
