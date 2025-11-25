@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Examples</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples</title>
 
-  <link rel="stylesheet" href="/flat-design-archive/public/css/flat.css" />
-  <script src="/flat-design-archive/public/js/menu.js"></script>
+  <!-- CRITICAL FIX: ALL ASSETS MUST USE pathPrefix -->
+  <link rel="stylesheet" href="public/css/flat.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container nav-bar">
-      <div class="logo">Flat Design Archive</div>
-      
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="hamburger-icon"></span> 
-      </button>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">Flat Design Archive</div>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-icon"></span> 
+      </button>
 
-      <nav class="nav nav-links">
-        <a href="/flat-design-archive/">Home</a>
-        <a href="/flat-design-archive/history/">History</a>
-        <a href="/flat-design-archive/examples/">Examples</a>
-        <a href="/flat-design-archive/references/">References</a>
-      </nav>
-    </div>
-  </header>
+      <nav class="nav nav-links">
+        <!-- CRITICAL FIX: ALL NAVIGATION MUST USE pathPrefix -->
+        <a href="">Home</a>
+        <a href="history/">History</a>
+        <a href="examples/">Examples</a>
+        <a href="references/">References</a>
+      </nav>
+    </div>
+  </header>
 
-  <main class="container page-content">
-      <h1>Flat Design Examples</h1>
-<div class="example-grid">
-<div class="example-card">
-  <img src="/public/images/image.png" alt="Example 1">
-  <h3>Example 1</h3>
-  <p>This is Flat Design because it uses bright, saturated colors, strong geometric shapes (like blocks and cards), and completely avoids three-dimensional elements like shadows, gradients, and textures, emphasizing clarity and simplicity.</p>
-</div>
-<div class="example-card">
-  <img src="/public/images/image2.png" alt="Example 2">
-  <h3>Example 2</h3>
-  <p>The provided images demonstrate Flat Design primarily because the aesthetic relies on minimalist, two-dimensional elements, strong geometric shapes, and a lack of depth cues like shadows or gradients. This style prioritizes clarity, usability, and typography over detailed ornamentation or realistic textures.</p>
-</div>
-</div>
+  <main class="container page-content">
+    <!-- This is where your Markdown content is inserted -->
+    &lt;h1&gt;Flat Design Examples&lt;/h1&gt;
+&lt;div class=&quot;example-grid&quot;&gt;
+&lt;div class=&quot;example-card&quot;&gt;
+  &lt;img src=&quot;/public/images/image.png&quot; alt=&quot;Example 1&quot;&gt;
+  &lt;h3&gt;Example 1&lt;/h3&gt;
+  &lt;p&gt;This is Flat Design because it uses bright, saturated colors, strong geometric shapes (like blocks and cards), and completely avoids three-dimensional elements like shadows, gradients, and textures, emphasizing clarity and simplicity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;example-card&quot;&gt;
+  &lt;img src=&quot;/public/images/image2.png&quot; alt=&quot;Example 2&quot;&gt;
+  &lt;h3&gt;Example 2&lt;/h3&gt;
+  &lt;p&gt;The provided images demonstrate Flat Design primarily because the aesthetic relies on minimalist, two-dimensional elements, strong geometric shapes, and a lack of depth cues like shadows or gradients. This style prioritizes clarity, usability, and typography over detailed ornamentation or realistic textures.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+ 
+  </main>
 
-  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Flat Design Archive</p>
+    </div>
+  </footer>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© Flat Design Archive</p>
-    </div>
-  </footer>
-
-  <script src="/flat-design-archive/public/js/menu.js"></script> 
+  <!-- CRITICAL FIX: ALL SCRIPTS MUST USE pathPrefix -->
+  <script src="public/js/menu.js"></script> 
 </body>
 </html>
