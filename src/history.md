@@ -2,6 +2,7 @@
 layout: base.njk
 title: History
 permalink: /history/
+date: 2025-11-25
 ---
 
 # History of Flat Design

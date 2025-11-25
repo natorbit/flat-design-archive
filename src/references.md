@@ -2,6 +2,7 @@
 layout: base.njk
 title: References
 permalink: /references/
+date: 2025-11-25
 ---
 
 # References

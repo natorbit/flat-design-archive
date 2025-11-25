@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title or "Flat Design Archive" }}</title>
+  <title>Examples</title>
 
   <link rel="stylesheet" href="/css/flat.css" />
 </head>
@@ -23,12 +23,25 @@
   </header>
 
   <main class="container page-content">
-      {{ content | safe }}
+      <h1>Flat Design Examples</h1>
+<div class="example-grid">
+<div class="example-card">
+  <img src="/images/example01.jpg" alt="Example 1">
+  <h3>Example 1</h3>
+  <p>Minimal portfolio style with bold color blocks.</p>
+</div>
+<div class="example-card">
+  <img src="/images/example02.jpg" alt="Example 2">
+  <h3>Example 2</h3>
+  <p>Clean SaaS landing layout emphasizing clarity.</p>
+</div>
+</div>
+
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© {{ date.now() | date("yyyy") }} Flat Design Archive</p>
+      <p>© Invalid DateTime Flat Design Archive</p>
     </div>
   </footer>
 </body>

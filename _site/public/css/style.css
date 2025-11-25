@@ -69,3 +69,89 @@ body{
   .nav{ width:100%; justify-content:flex-start; flex-wrap:wrap; gap:0.5rem; }
   .content{ margin:1.5rem auto; }
 }
+/* Base layout */
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f4f7;
+  color: #222;
+}
+
+main.content {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn.secondary {
+  background: white;
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+/* Cards Grid */
+.card-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+}
+
+.card.blue { background: #3498db; }
+.card.green { background: #2ecc71; }
+.card.orange { background: #f39c12; }
+.card.red { background: #e74c3c; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

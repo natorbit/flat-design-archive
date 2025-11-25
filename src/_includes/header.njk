@@ -5,7 +5,12 @@
   <nav>
     <ul class="nav">
       {% for item in site.nav %}
-        <li><a href="{{ item.url }}" class="{{ page.url == item.url ? 'active' : '' }}">{{ item.name }}</a></li>
+        <li>
+          <a href="{{ item.url }}"
+             class="{% if page.url == item.url %}active{% endif %}">
+             {{ item.name }}
+          </a>
+        </li>
       {% endfor %}
     </ul>
   </nav>

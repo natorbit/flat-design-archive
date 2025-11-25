@@ -2,6 +2,7 @@
 layout: base.njk
 title: Examples
 permalink: /examples/
+date: 2025-11-25
 ---
 
 # Flat Design Examples
