@@ -20,12 +20,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Eleventy Site (Direct Binary Execution Fix)
-        # 💥 FINAL FIX: This uses the shell to locate the Eleventy binary path 
-        # ($(npm bin)) and executes it directly. This is the most robust workaround 
-        # for the persistent 'Permission denied' error (Exit Code 127/126) 
-        # when npx/npm exec fail.
-        run: NODE_ENV=production $(npm bin)/eleventy
+      - name: Build Eleventy Site (npx --no-install fix)
+        # 💥 FINAL FIX (Attempt 5): We use 'npx --no-install'. This command finds the 
+        # local binary and runs it directly, bypassing the 'Permission denied' errors 
+        # that standard npx or shell execution methods have failed to resolve.
+        run: NODE_ENV=production npx --no-install @11ty/eleventy
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
