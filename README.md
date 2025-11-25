@@ -7,7 +7,7 @@ This site was built using **Eleventy (11ty)**, **Nunjucks**, and vanilla **CSS/J
 ## 🚀 Live Demo
 
 The site is currently deployed via GitHub Pages and is live at:
-**https://natorbit.github.io/flat-design-archive/**
+**https://natorbit.github.io/flat-design-archive/index**
 
 ---
 
