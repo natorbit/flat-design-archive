@@ -30,7 +30,7 @@ module.exports = function(eleventyConfig) {
     },
     
     // Default templating engine settings
-    markdownTemplateEngine: "liquid",
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk"
   };
