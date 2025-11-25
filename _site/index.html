@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+  <title>{{ title }}</title>
 
-  <!-- CRITICAL FIX: ALL ASSETS MUST USE pathPrefix -->
+  <!-- Check 1: Ensure flat.css loads -->
   <link rel="stylesheet" href="/flat-design-archive/public/css/flat.css" />
+  
+  <!-- Check 2: Add style.css, just in case it is the primary stylesheet -->
+  <link rel="stylesheet" href="/flat-design-archive/public/css/style.css" />
 </head>
 
 <body>
@@ -19,7 +22,7 @@
       </button>
 
       <nav class="nav nav-links">
-        <!-- CRITICAL FIX: ALL NAVIGATION MUST USE pathPrefix -->
+        <!-- CORRECT: Use the variable for navigation -->
         <a href="/flat-design-archive/">Home</a>
         <a href="/flat-design-archive/history/">History</a>
         <a href="/flat-design-archive/examples/">Examples</a>
@@ -29,39 +32,8 @@
   </header>
 
   <main class="container page-content">
-    <!-- This is where your Markdown content is inserted -->
-    &lt;div class=&quot;hero&quot;&gt;
-  &lt;h1&gt;Flat Design Archive&lt;/h1&gt;
-  &lt;p&gt;
-    Clean, colorful, two-dimensional UI inspired by early-2010s Flat Design and iOS 7.
-    Explore its origins, principles, and modern examples.
-  &lt;/p&gt;
-  &lt;div class=&quot;hero-buttons&quot;&gt;
-    &lt;a href=&quot;/history/&quot; class=&quot;btn primary&quot;&gt;Learn the history&lt;/a&gt;
-    &lt;a href=&quot;/examples/&quot; class=&quot;btn secondary&quot;&gt;View examples&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h2&gt;Core Principles&lt;/h2&gt;
-&lt;div class=&quot;card-grid&quot;&gt;
-  &lt;div class=&quot;card blue&quot;&gt;
-    &lt;h3&gt;Color&lt;/h3&gt;
-    &lt;p&gt;Bright, saturated color palettes.&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;card green&quot;&gt;
-    &lt;h3&gt;Simplicity&lt;/h3&gt;
-    &lt;p&gt;Minimal textures, shadows, and effects.&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;card orange&quot;&gt;
-    &lt;h3&gt;Geometry&lt;/h3&gt;
-    &lt;p&gt;Crisp grids, shapes, and clean spacing.&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;card red&quot;&gt;
-    &lt;h3&gt;Usability&lt;/h3&gt;
-    &lt;p&gt;Focus on clarity and high readability.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
- 
+    <!-- Content from Markdown is injected here -->
+    {{ content | safe }}
   </main>
 
   <footer class="site-footer">
@@ -70,7 +42,7 @@
     </div>
   </footer>
 
-  <!-- CRITICAL FIX: ALL SCRIPTS MUST USE pathPrefix -->
+  <!-- CORRECT: Use the variable for scripts -->
   <script src="/flat-design-archive/public/js/menu.js"></script> 
 </body>
 </html>
