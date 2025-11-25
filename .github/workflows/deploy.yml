@@ -1,0 +1,32 @@
+name: Deploy Eleventy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # Triggers the workflow when you push to the master branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a modern Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Eleventy Site
+        # Runs the production build command, setting NODE_ENV=production for correct paths
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site # Tells the action to push the output folder
+          publish_branch: gh-pages # The branch that GitHub Pages will serve
