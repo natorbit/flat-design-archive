@@ -20,14 +20,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # FIX: This adds the local Node binary directory to the PATH, 
-      # resolving the previous 'Permission denied' error (Exit Code 127).
-      - name: Add npm bin to PATH
-        run: echo "$(npm bin)" >> $GITHUB_PATH
-
-      - name: Build Eleventy Site
-        # Runs the production build command, setting NODE_ENV=production
-        run: NODE_ENV=production npm run build
+      - name: Build Eleventy Site (Direct Node Execution)
+        # 💥 FINAL FIX: We directly call the Eleventy main command file using the 'node' 
+        # interpreter. This is the most reliable way to bypass the 'Permission denied' 
+        # error (Exit Code 127/126) that the shell gives when trying to run the binary.
+        run: NODE_ENV=production node node_modules/@11ty/eleventy/cmd.js 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
