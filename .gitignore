@@ -1,0 +1,27 @@
+# ------------------------------------
+# 1. DEPENDENCIES AND ENVIRONMENT
+# ------------------------------------
+# Ignore node modules (downloaded dependencies)
+/node_modules
+
+# Ignore environment variables and local secrets
+.env
+.DS_Store 
+
+
+# ------------------------------------
+# 2. ELEVENTY ARTIFACTS
+# ------------------------------------
+# Ignore Eleventy's cache folder
+.cache/
+
+# Ignore the local development server log/configuration
+.eleventy-serve.json
+
+
+# ------------------------------------
+# 3. CRUCIAL EXCLUSION (Do NOT ignore these)
+# ------------------------------------
+# We need the _site folder for GitHub Pages deployment, 
+# so DO NOT list it here or anywhere else.
+# Similarly, DO NOT ignore the .nojekyll file.
