@@ -6,7 +6,7 @@ module.exports = function(eleventyConfig) {
     const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
     // Set 'baseurl' to the repo name for GitHub, or empty string locally
-    eleventyConfig.addGlobalData("baseurl", IS_PRODUCTION ? "/flat-design-archive" : "");
+    eleventyConfig.addGlobalData('pathPrefix', '/flat-design-archive/');
 
     // 2. PASSTHROUGH COPY
     eleventyConfig.addPassthroughCopy("public");
