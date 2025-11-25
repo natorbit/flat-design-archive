@@ -14,7 +14,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData('pathPrefix', pathPrefix);
   
   // 3. Passthrough Copy (Ensure your CSS/JS files are copied)
-  // Assuming your assets are in a folder named 'public'
+  // Assuming your assets are in a folder named 'public' which is often outside 'src'
+  // If 'public' is inside 'src', change the path to "src/public"
   eleventyConfig.addPassthroughCopy("public"); 
   
   // 4. Return the configuration object
@@ -24,8 +25,10 @@ module.exports = function(eleventyConfig) {
     
     // Define input/output directories
     dir: {
-      input: ".", 
+      // 💥 FIX 1: Change input from "." to "src"
+      input: "src", 
       output: "_site", 
+      // 💥 FIX 2: Set includes to "_includes" relative to the new input directory ("src")
       includes: "_includes"
     },
     
