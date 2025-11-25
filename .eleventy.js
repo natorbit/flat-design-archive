@@ -1,10 +1,14 @@
 // .eleventy.js
 
-const { DateTime } = require("luxon");
-
 module.exports = function(eleventyConfig) {
-    
 
+    // 1. CONDITIONAL PATH VARIABLE FIX
+    const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
+    // Set 'baseurl' to the repo name for GitHub, or empty string locally
+    eleventyConfig.addGlobalData("baseurl", IS_PRODUCTION ? "/flat-design-archive" : "");
+
+    // 2. PASSTHROUGH COPY
     eleventyConfig.addPassthroughCopy("public");
 
     return {
