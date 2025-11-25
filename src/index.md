@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Home
+permalink: /index.html
 ---
 
 <div class="hero">
